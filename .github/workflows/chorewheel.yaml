@@ -1,0 +1,19 @@
+name: "Chore Wheel"
+on:
+  schedule:
+    # run a cron job every sunday morning at 9 am
+    - cron: "0 9 * * 0"
+  # run on dispatch
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: node index.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
