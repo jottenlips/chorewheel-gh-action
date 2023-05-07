@@ -46,7 +46,7 @@ const main = async () => {
 
   const choreText = assignChores(chores);
   console.log(choreText);
-  fetch(
+  const response = await fetch(
     "https://platform.vestaboard.com/subscriptions/${process.env.VB_SUB_ID}/message",
     {
       body: JSON.stringify({ text: choreText }),
