@@ -35,6 +35,6 @@ const assignChores = (chores) => {
   );
   return personList
     .map((person) => `${person}: ${choreWheel[person].join(", ")}`)
-    .join(`\n`);
+    .join(`\n\n`);
 };
 console.log(assignChores(chores));
