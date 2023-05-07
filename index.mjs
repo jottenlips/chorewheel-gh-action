@@ -43,7 +43,7 @@ const main = async () => {
       }
     );
     return personList
-      .map((person) => `${person}: ${choreWheel[person].join(",")}`)
+      .map((person) => `${person}: ${choreWheel[person].join(" ")}`)
       .join(`\n`);
   };
 
