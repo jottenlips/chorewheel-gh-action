@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import * as dotenv from "dotenv";
 dotenv.config();
+export const API_URL = "https://platform.vestaboard.com";
 
 const main = async () => {
   const people = { john: [], adrienne: [] };
@@ -49,19 +50,16 @@ const main = async () => {
   const choreText = assignChores(chores);
   console.log(choreText);
   if (process.env.VB_SUB_KEY) {
-    const response = await fetch(
-      "https://platform.vestaboard.com/subscriptions/${process.env.VB_SUB_ID}/message",
-      {
-        body: JSON.stringify({ text: choreText }),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "X-Vestaboard-Api-Key": process.env.VB_SUB_KEY,
-          "X-Vestaboard-Api-Secret": process.env.VB_SUB_SECRET,
-        },
-        method: "POST",
-      }
-    );
-    console.log(await response.json());
+    await fetch(`${API_URL}/subscriptions/${process.env.VB_SUB_ID}/message`, {
+      method: "POST",
+      headers: {
+        "X-Vestaboard-Api-Key": process.env.VB_SUB_KEY,
+        "X-Vestaboard-Api-Secret": process.env.VB_SUB_SECRET,
+      },
+      body: JSON.stringify({
+        text: choreText,
+      }),
+    });
   }
 };
 main();
