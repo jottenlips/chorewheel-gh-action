@@ -4,7 +4,7 @@ dotenv.config();
 export const API_URL = "https://platform.vestaboard.com";
 
 const main = async () => {
-  const people = { john: [], adrienne: [] };
+  const people = { john: [], adri: [] };
   const personList = Object.keys(people);
   const chores = [
     "cat",
@@ -43,8 +43,8 @@ const main = async () => {
       }
     );
     return personList
-      .map((person) => `${person}: ${choreWheel[person].join(", ")}`)
-      .join(`\n\n`);
+      .map((person) => `${person}: ${choreWheel[person].join(",")}`)
+      .join(`\n`);
   };
 
   const choreText = assignChores(chores);
