@@ -48,18 +48,20 @@ const main = async () => {
 
   const choreText = assignChores(chores);
   console.log(choreText);
-  const response = await fetch(
-    "https://platform.vestaboard.com/subscriptions/${process.env.VB_SUB_ID}/message",
-    {
-      body: JSON.stringify({ text: choreText }),
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "X-Vestaboard-Api-Key": process.env.VB_SUB_KEY,
-        "X-Vestaboard-Api-Secret": process.env.VB_SUB_SECRET,
-      },
-      method: "POST",
-    }
-  );
-  console.log(await response.json());
+  if (process.env.VB_SUB_KEY) {
+    const response = await fetch(
+      "https://platform.vestaboard.com/subscriptions/${process.env.VB_SUB_ID}/message",
+      {
+        body: JSON.stringify({ text: choreText }),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-Vestaboard-Api-Key": process.env.VB_SUB_KEY,
+          "X-Vestaboard-Api-Secret": process.env.VB_SUB_SECRET,
+        },
+        method: "POST",
+      }
+    );
+    console.log(await response.json());
+  }
 };
 main();
