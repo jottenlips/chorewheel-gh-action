@@ -14,8 +14,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "18.x"
-      - run: node index.js
+      - run: |
+          npm install
+          node index.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VB_TOKEN: ${{ secrets.VB_TOKEN }}
-          TEST_ENV: ${{ secrets.TEST_ENV }}
+          VB_SUB_ID: ${{ secrets.VB_SUB_ID }}
+          VB_SUB_KEY: ${{ secrets.VB_SUB_KEY }}
+          VB_SUB_SECRET: ${{ secrets.VB_SUB_SECRET }}
