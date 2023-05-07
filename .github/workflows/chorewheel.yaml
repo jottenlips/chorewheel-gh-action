@@ -17,3 +17,5 @@ jobs:
       - run: node index.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VB_TOKEN: ${{ secrets.VB_TOKEN }}
+          TEST_ENV: ${{ secrets.TEST_ENV }}

@@ -6,6 +6,7 @@ const chores = [
   "groceries",
   "pickup",
   "bathrooms",
+  "cooking",
   "mow",
   "garden",
   "dishes",
@@ -37,4 +38,5 @@ const assignChores = (chores) => {
     .map((person) => `${person}: ${choreWheel[person].join(", ")}`)
     .join(`\n\n`);
 };
+console.log(process.env.TEST_ENV);
 console.log(assignChores(chores));
