@@ -1,4 +1,6 @@
 import fetch from "node-fetch";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const main = async () => {
   const people = { john: [], adrienne: [] };
