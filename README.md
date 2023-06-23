@@ -1,7 +1,9 @@
 # vestaboard-chorewheel-action
 ⚙️ Example GitHub action for making a chore wheel with Vestaboard
 
-# Add these two keys to the settings for this action
+# Add these two three to the settings for this action
+
+VB_SUB_ID
 
 VB_SUB_KEY
 
